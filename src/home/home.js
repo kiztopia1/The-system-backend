@@ -1,7 +1,7 @@
 import React from 'react'
 import './home.scss'
 
-
+import PosPage from './component/posPage/PosPage'
 import AddItem from './component/addItem/AddItem'
 function Home() {
     return (
@@ -9,6 +9,7 @@ function Home() {
             
             <div className='main-container'>
                 <AddItem></AddItem>
+                <PosPage/>
             </div>
             
         </div>
