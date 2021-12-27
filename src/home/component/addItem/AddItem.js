@@ -11,8 +11,8 @@ function AddItem() {
             amount: amount.current.value
         }
 
-        axios.get('http://127.0.0.1:8000/admin/', data).then(res => {
-            console.log(res)
+        axios.post('http://127.0.0.1:8000//', data).then(res => {
+            console.log(res.data)
         })
         
     }
