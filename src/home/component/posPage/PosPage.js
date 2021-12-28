@@ -15,13 +15,16 @@ function PosPage() {
     const addSoldItem = (item) => {
 
         const soldItem = {
+            key: item.key,
             name: item.name,
             price: item.price,
-            amount: item.amount,
+            amount: 1,
             saleId: 'kira'
         }
         setItems(prevItems => [...prevItems, soldItem])
     }
+
+    
     useEffect(() => {
         const calcTotal = () => {
             let sum = 0
@@ -32,7 +35,44 @@ function PosPage() {
         }
         calcTotal()
     }, [items])
-    
+    useEffect(() => {
+        
+       
+       listItems()
+       
+    },[items]) 
+    const handleAmount = (key) => {
+        console.log('boom ***************')
+        items.map(item => {
+            console.log(item.key , key)
+            if(item.key == key){
+                console.log(item, 'item')
+                let newAmount =item.amount ++
+                console.log(newAmount, 'new')
+                return {...item, amount: newAmount }
+            }
+            else{
+                return item
+            }
+        })
+        console.log(items)
+    }
+    const listItems = () => {
+        return (
+             items.map(item => (
+                <div className="" key={item.key}>
+                    <br />
+                    <hr />
+                    key: {item.key } <br />
+                    name: {item.name} <br />
+                    price: {item.price}, <br />
+                    amount: {item.amount} <strong onClick={() => handleAmount(item.key)} >add</strong>  sum<br />
+                    saseID: {item.saleId} <br />
+                 <br />
+                </div>
+            ))
+        )
+    } 
     return (
         <div>
             <h1>POS page</h1>
@@ -44,17 +84,7 @@ function PosPage() {
             </div>
 
             <div className="items">
-               { items.map(item => (
-                   <div className="">
-                       <br />
-                       <hr />
-                       name: {item.name} <br />
-                       price: {item.price}, <br />
-                       amount: {item.amount} <strong>add</strong>  sum<br />
-                       saseID: {item.saleId} <br />
-                    <br />
-                   </div>
-               ))
+               { listItems()
             }
             </div>
 
