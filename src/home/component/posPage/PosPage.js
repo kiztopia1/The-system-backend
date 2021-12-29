@@ -20,7 +20,8 @@ function PosPage() {
             name: item.name,
             price: item.price,
             amount: '1',
-            saleId: 'kira'
+            saleId: 'kira',
+            date: Date.now()
         }
         setItems(prevItems => [...prevItems, soldItem])
     }
@@ -39,7 +40,22 @@ function PosPage() {
 
 
     
+    const handelProcessSale = () => {
 
+
+        items.map(item => {
+            console.log(item)
+            const data  = {
+                item: item.key,
+                saleId: 'kira',
+                amount: '2',
+                date:  '2021-12-24'
+            }
+            axios.post('http://127.0.0.1:8000/sold', data).then(res => {
+                console.log(res)
+            })
+        })
+    }
 
     return (
         <div>
@@ -63,6 +79,10 @@ function PosPage() {
             <div className="total">
                 <p>total</p>
                 {total}
+            </div>
+
+            <div>
+                <button onClick={handelProcessSale}>process</button>
             </div>
         </div>
     )
