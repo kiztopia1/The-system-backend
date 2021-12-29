@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React,{useRef,useState,useEffect} from 'react'
 import AddItem from '../addItem/AddItem'
+import Item from './Item'
 
 function PosPage() {
     const [items, setItems] = useState([])
@@ -18,7 +19,7 @@ function PosPage() {
             key: item.key,
             name: item.name,
             price: item.price,
-            amount: 1,
+            amount: '1',
             saleId: 'kira'
         }
         setItems(prevItems => [...prevItems, soldItem])
@@ -35,44 +36,11 @@ function PosPage() {
         }
         calcTotal()
     }, [items])
-    useEffect(() => {
-        
-       
-       listItems()
-       
-    },[items]) 
-    const handleAmount = (key) => {
-        console.log('boom ***************')
-        items.map(item => {
-            console.log(item.key , key)
-            if(item.key == key){
-                console.log(item, 'item')
-                let newAmount =item.amount ++
-                console.log(newAmount, 'new')
-                return {...item, amount: newAmount }
-            }
-            else{
-                return item
-            }
-        })
-        console.log(items)
-    }
-    const listItems = () => {
-        return (
-             items.map(item => (
-                <div className="" key={item.key}>
-                    <br />
-                    <hr />
-                    key: {item.key } <br />
-                    name: {item.name} <br />
-                    price: {item.price}, <br />
-                    amount: {item.amount} <strong onClick={() => handleAmount(item.key)} >add</strong>  sum<br />
-                    saseID: {item.saleId} <br />
-                 <br />
-                </div>
-            ))
-        )
-    } 
+
+
+    
+
+
     return (
         <div>
             <h1>POS page</h1>
@@ -84,8 +52,12 @@ function PosPage() {
             </div>
 
             <div className="items">
-               { listItems()
-            }
+                {console.log(items, 'new items')}
+               {
+                   items.map(item => (
+                    <Item key={item.key} item={item} ></Item>
+                ))
+               }
             </div>
 
             <div className="total">
