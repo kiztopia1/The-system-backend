@@ -19,7 +19,7 @@ function PosPage() {
             key: item.key,
             name: item.name,
             price: item.price,
-            amount: '1',
+            amount: 1,
             saleId: 'kira',
             date: Date.now()
         }
@@ -48,7 +48,7 @@ function PosPage() {
             const data  = {
                 item: item.key,
                 saleId: 'kira',
-                amount: '2',
+                amount: item.amount +1,
                 date:  '2021-12-24'
             }
             axios.post('http://127.0.0.1:8000/sold', data).then(res => {
