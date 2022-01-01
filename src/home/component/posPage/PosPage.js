@@ -31,18 +31,16 @@ function PosPage() {
         const calcTotal = () => {
             let sum = 0
             items.forEach(function(item){
-                sum = Number(item.price) + sum
+                console.log(item)
+                console.log(item.price, item.amount)
+                sum = Number(item.price * item.amount) + sum
             }) 
             setTotal(sum)
         }
         calcTotal()
     }, [items])
 
-
-    
     const handelProcessSale = () => {
-
-
         items.map(item => {
             console.log(item)
             const data  = {
@@ -71,7 +69,14 @@ function PosPage() {
                 {console.log(items, 'new items')}
                {
                    items.map(item => (
-                    <Item key={item.key} item={item} ></Item>
+                       <>
+                       <Item key={item.key} item={item} ></Item>
+                       <hr/>
+                       <p onClick={handleAmount}>add</p>
+                         <br />
+                       <hr/>
+                       </>
+                    
                 ))
                }
             </div>
