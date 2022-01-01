@@ -49,8 +49,11 @@ function PosPage() {
                 amount: item.amount +1,
                 date:  '2021-12-24'
             }
-            axios.post('http://127.0.0.1:8000/sold', data).then(res => {
+            axios.post('http://127.0.0.1:8000/sold/add', data).then(res => {
                 console.log(res)
+                if(res.status == 201){
+                    setItems([])
+                }
             })
         })
     }
@@ -72,7 +75,7 @@ function PosPage() {
                        <>
                        <Item key={item.key} item={item} ></Item>
                        <hr/>
-                       <p onClick={handleAmount}>add</p>
+                       <p >add</p>
                          <br />
                        <hr/>
                        </>
