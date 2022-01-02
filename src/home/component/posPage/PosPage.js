@@ -8,7 +8,7 @@ function PosPage() {
     const [total, setTotal] = useState(0)
     const key = useRef('')
     const handleAddItem = () => {
-        axios.get(`http://127.0.0.1:8000/${key.current.value}`).then(res => {
+        axios.get(`http://127.0.0.1:8000/item/${key.current.value}`).then(res => {
             addSoldItem(res.data)
             
         })
@@ -49,7 +49,7 @@ function PosPage() {
                 amount: item.amount +1,
                 date:  '2021-12-24'
             }
-            axios.post('http://127.0.0.1:8000/sold/add', data).then(res => {
+            axios.post('http://127.0.0.1:8000/pos/add', data).then(res => {
                 console.log(res)
                 if(res.status == 201){
                     setItems([])
