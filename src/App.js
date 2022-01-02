@@ -10,7 +10,6 @@ function App() {
   return (
     <Router>
       <Nav></Nav>
-      <button className='btn btn-danger'>killing</button>
       <Routes >
       <Route path='/home' element={<Home/>}/>
       <Route path='/soldItems' element={<SoldItemsPage/>}/>

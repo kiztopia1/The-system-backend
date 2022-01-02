@@ -7,7 +7,7 @@ function Home() {
     return (
         <div className='home'>
             
-            <div className='main-container'>
+            <div className='main-container container'>
                 <AddItem></AddItem>
                 <PosPage/>
             </div>

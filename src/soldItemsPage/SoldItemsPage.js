@@ -77,7 +77,7 @@ function SoldItemsPage() {
         })
         }
     return (
-        <div>
+        <div className='container'>
             <h1>Todays sell</h1>
             {items.map(item => {
                 return(
