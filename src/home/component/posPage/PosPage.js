@@ -7,7 +7,9 @@ function PosPage() {
     const [items, setItems] = useState([])
     const [total, setTotal] = useState(0)
     const key = useRef('')
-    const handleAddItem = () => {
+    const handleAddItem = (e) => {
+        e.preventDefault();
+        
         axios.get(`http://127.0.0.1:8000/item/${key.current.value}`).then(res => {
             addSoldItem(res.data)
             
@@ -62,11 +64,11 @@ function PosPage() {
         <div>
             <h1>POS page</h1>
 
-            <div className="search" >
+            <form onSubmit={handleAddItem} className="search form-group" >
                 <label htmlFor="key">bar code</label>
-                <input type="text" name="key" id="key" ref={key}/>
-                <button onClick={handleAddItem} >add</button>
-            </div>
+                <input class="form-control" type="text" name="key" id="key" ref={key}/>
+                <button className='btn btn-sm btn-primary' type='submit' >add</button>
+            </form>
 
             <div className="items">
                 {console.log(items, 'new items')}
@@ -90,7 +92,7 @@ function PosPage() {
             </div>
 
             <div>
-                <button onClick={handelProcessSale}>process</button>
+                <button className='btn btn-sm btn-primary' onClick={handelProcessSale}>process</button>
             </div>
         </div>
     )

@@ -24,24 +24,24 @@ function AddItem() {
             <h1>add item</h1>
 
             <form onSubmit={handleAddItem}>
-                <div>
+                <div className='form-group'>
                     <label htmlFor="key">key</label>
-                    <input type="text" name="key" id="key" ref={key}/>
+                    <input  className="form-control" type="text" name="key" id="key" ref={key}/>
                 </div>
-                <div>
+                <div className='form-group'>
                     <label htmlFor="name">name</label>
-                    <input type="text" name="name" id="name" ref={name}/>
+                    <input className="form-control" type="text" name="name" id="name" ref={name}/>
                 </div>
-                <div>
+                <div className='form-group'>
                     <label htmlFor="price">price</label>
-                    <input type="text" name="price" id="price" ref={price} />
+                    <input className="form-control" type="text" name="price" id="price" ref={price} />
                 </div>
-                <div>
+                <div className='form-group'>
                     <label htmlFor="amount">amount</label>
-                    <input type="text" name="amount" id="amount" ref={amount}/>
+                    <input className="form-control" type="text" name="amount" id="amount" ref={amount}/>
                 </div>
 
-                <button>add</button>
+                <button className='btn btn-sm btn-primary'>add</button>
             </form>
         </div>
     )

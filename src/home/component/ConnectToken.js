@@ -34,7 +34,7 @@ function ConnectToken() {
                         <label htmlFor="amount">Token Id</label>
                         <input type="text" name="id" id="id" ref={id}/>
                     </div>
-                    <button className='btn' onClick={ConnectHandler}>Connect</button>
+                    <button className='btn btn-sm btn-primary' onClick={ConnectHandler}>Connect</button>
                 </div>
         </div>
     )
