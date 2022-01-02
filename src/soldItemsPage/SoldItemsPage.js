@@ -12,7 +12,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import faker from 'faker';
 
 ChartJS.register(
   CategoryScale,
@@ -48,10 +47,13 @@ function SoldItemsPage() {
       let labels = []
       let dataSet = []
       items.map(item => {
-        dataSet.push(item.amount)
-        labels.push(item.item)
+        if(labels.indexOf(item.item) != -1){
+          dataSet[labels.indexOf(item.item)] += Number(item.amount)
+        }else{
+          dataSet.push(Number(item.amount))
+          labels.push(item.item)
+        }
       } )
-      console.log('data', labels, dataSet, items)
       setLabels(labels)
       setData(dataSet)
     }
