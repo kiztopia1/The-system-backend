@@ -78,7 +78,7 @@ function SoldItemsPage() {
         }
     return (
         <div className='container'>
-            <h1>Todays sell</h1>
+            <h1>Todays sale</h1>
             {items.map(item => {
                 return(
                   item.date
