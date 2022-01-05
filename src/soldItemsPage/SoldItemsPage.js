@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState,useEffect } from 'react'
-
+import './soldItemPage.scss'
 
 import {
   Chart as ChartJS,
@@ -42,18 +42,24 @@ function SoldItemsPage() {
   const [items, setItems] = useState([])
   const [labels, setLabels] = useState([])
   const [dataSet, setData] = useState([])
+  const [total, setTotal] = useState(0)
+
   useEffect(() => {
     const updateLabel = () => {
       let labels = []
       let dataSet = []
+      let total = 0
       items.map(item => {
         if(labels.indexOf(item.item) != -1){
           dataSet[labels.indexOf(item.item)] += Number(item.amount)
+          total = total+Number(item.amount)
         }else{
           dataSet.push(Number(item.amount))
           labels.push(item.item)
+          total = total+Number(item.amount)
         }
       } )
+      setTotal(total)
       setLabels(labels)
       setData(dataSet)
     }
@@ -79,13 +85,14 @@ function SoldItemsPage() {
     return (
         <div className='container'>
             <h1>Todays sale</h1>
-            {items.map(item => {
-                return(
-                  item.date
-                )
-            })}
+            <div>
+              <p className="total">
+                Total Revenue<br/>
+                {total } birr
+              </p>
+            </div>
             <Bar options={options} data={data} />
-            <span onClick={handleTodaySell}>load</span>
+            <button className='btn btn-sm btn-warning' onClick={handleTodaySell}>load</button>
         </div>
     )
 }
