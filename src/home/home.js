@@ -11,7 +11,7 @@ function Home() {
             </div>
             <div className=' home-child main'>
                 <h2>hagere Inventory </h2>
-                <AddItem></AddItem>
+                
             </div>
             <div className="home-child pos">
                 <h2 className="pos-header">tab #1</h2>

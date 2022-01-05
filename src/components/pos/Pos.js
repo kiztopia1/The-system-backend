@@ -83,11 +83,11 @@ function Pos() {
             
 
                 <div className='pos-bottom'>
-                    <div className="total">
-                        <p>total</p>
-                        {total}
+                    <div className="total bold-w">
+                        <p className='bold-w'>total</p>
+                        <p className='bold-w'>{total}.00 Birr</p>
                     </div>
-                    <button className='btn btn-sm btn-primary process-btn' onClick={handelProcessSale}>process</button>
+                    <button className='btn btn-sm btn-primary process-btn bold' onClick={handelProcessSale}>process</button>
                 </div>
             </div>
         </div>
