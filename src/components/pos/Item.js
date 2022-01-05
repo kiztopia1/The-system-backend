@@ -3,10 +3,18 @@ import './item.scss'
 function Item({item}) {
 
     return (
-        <div className="" key={item.key}>
-                    name: {item.name} <br />
-                    price: {item.price} birr<br />
-                    amount: {item.amount} x<br />
+        <div className="item row" key={item.key}>
+                     <div className="amount col-2">{item.amount}X</div>
+                     <div className='name col-7'>{item.name} </div>
+                     <div className="price col-3">{item.price} Birr</div>
+
+                    <div className=" col-2"></div>
+                     <div className='name col-7'></div>
+                     <div className="price col-3">{item.price} Birr</div>
+
+                    <div className='col-2'></div>
+                     <div className='name col-7'> </div>
+                     <div className="price col-3">{item.price} Birr</div>
                 </div>
     )
 }
