@@ -13,3 +13,18 @@
     display: flex;
     
 }
+
+.home-child{
+    flex-grow: 1;
+}
+.pos{
+    max-width: 400px;
+    
+}
+.home-nav{
+    width: 60px;
+}
+.pos-header{
+    background: $primary-light;
+    padding: 1px 20px;
+}

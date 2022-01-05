@@ -1,8 +1,8 @@
 import axios from 'axios'
 import React,{useRef,useState,useEffect} from 'react'
 import AddItem from '../addItemForm/AddItem'
-import Item from '../../posPage/Item'
-
+import Item from './Item'
+import './pos.scss'
 function Pos() {
     const [items, setItems] = useState([])
     const [total, setTotal] = useState(0)
@@ -60,12 +60,12 @@ function Pos() {
         })
     }
     return (
-        <>
-            <form onSubmit={handleAddItem} className="search form-group" >
+        <div className='pos'>
+            {<form onSubmit={handleAddItem} className="search form-group" >
                 <label htmlFor="key">bar code</label>
                 <input class="form-control" type="text" name="key" id="key" ref={key}/>
                 <button className='btn btn-sm btn-primary' type='submit' >add</button>
-            </form>
+            </form>}
 
             <div className="items">
                 {console.log(items, 'new items')}
@@ -73,25 +73,22 @@ function Pos() {
                    items.map(item => (
                        <>
                        <Item key={item.key} item={item} ></Item>
-                       <hr/>
-                       <p >add</p>
-                         <br />
-                       <hr/>
                        </>
                     
                 ))
                }
             </div>
 
-            <div className="total">
-                <p>total</p>
-                {total}
-            </div>
+            
 
-            <div>
+            <div className='pos-bottom'>
+                <div className="total">
+                    <p>total</p>
+                    {total}
+                </div>
                 <button className='btn btn-sm btn-primary' onClick={handelProcessSale}>process</button>
             </div>
-        </>
+        </div>
     )
 }
 
