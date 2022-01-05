@@ -1,9 +1,9 @@
 import axios from 'axios'
 import React,{useRef,useState,useEffect} from 'react'
-import AddItem from '../components/addItemForm/AddItem'
-import Item from './Item'
+import AddItem from '../addItemForm/AddItem'
+import Item from '../../posPage/Item'
 
-function PosPage() {
+function Pos() {
     const [items, setItems] = useState([])
     const [total, setTotal] = useState(0)
     const key = useRef('')
@@ -60,9 +60,7 @@ function PosPage() {
         })
     }
     return (
-        <div>
-            <h1>POS page</h1>
-
+        <>
             <form onSubmit={handleAddItem} className="search form-group" >
                 <label htmlFor="key">bar code</label>
                 <input class="form-control" type="text" name="key" id="key" ref={key}/>
@@ -93,8 +91,8 @@ function PosPage() {
             <div>
                 <button className='btn btn-sm btn-primary' onClick={handelProcessSale}>process</button>
             </div>
-        </div>
+        </>
     )
 }
 
-export default PosPage
+export default Pos;
