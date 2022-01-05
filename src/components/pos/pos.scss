@@ -25,4 +25,8 @@
     background: inherit!important;
     width: 100%;
     color: $light-color;
+    .total-div{
+        display: flex;
+        justify-content: space-between;
+    }
 }

@@ -83,9 +83,10 @@ function Pos() {
             
 
                 <div className='pos-bottom'>
-                    <div className="total bold-w">
-                        <p className='bold-w'>total</p>
-                        <p className='bold-w'>{total}.00 Birr</p>
+                    <div className="total ">
+                    <div className='total-div'><p>Sub Total</p> <p>{total}.00 Birr</p></div>
+                    <div className=' total-div'><p>Tax</p> <p>{Math.floor(total * 0.15)}.00 Birr</p></div>
+                    <div className='total-div '><p className='bold-w'>Total</p> <p className='bold-w'>{Math.floor(total * 0.15) + Number(total)}.00 Birr</p></div>
                     </div>
                     <button className='btn btn-sm btn-primary process-btn bold' onClick={handelProcessSale}>process</button>
                 </div>
