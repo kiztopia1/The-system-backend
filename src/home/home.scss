@@ -1,7 +1,15 @@
+@import '../variables.scss';
 .main-container{
     display: flex;
     
 }
 .main-main{
     flex-grow: 1;
+}
+.home{
+    background:$primary-dark;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    
 }

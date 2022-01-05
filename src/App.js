@@ -10,11 +10,11 @@ import PosPage from './posPage/PosPage'
 function App() {
   return (
     <Router>
-      <Nav></Nav>
+
       <Routes >
       <Route path='/home' element={<Home/>}/>
       <Route path='/soldItems' element={<SoldItemsPage/>}/>
-      <Route path="/posPage" element={<PosPage/>}/>
+      <Route path="/posPage" element={<PosPage/>}/> 
 
       </Routes >
     </Router>  
