@@ -1,8 +1,8 @@
 import React from 'react'
 import './home.scss'
 
-import PosPage from './component/posPage/PosPage'
-import AddItem from './component/addItem/AddItem'
+import PosPage from '../posPage/PosPage'
+import AddItem from '../components/addItemForm/AddItem'
 function Home() {
     return (
         <div className='home'>

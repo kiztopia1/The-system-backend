@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React,{useRef,useState,useEffect} from 'react'
-import AddItem from '../addItem/AddItem'
+import AddItem from '../components/addItemForm/AddItem'
 import Item from './Item'
 
 function PosPage() {
