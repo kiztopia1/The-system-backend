@@ -6,6 +6,7 @@ function Nav() {
         <div className='container'>
             <Link to={'home'}>home</Link>     
             <Link to={'soldItems'}>  sold items</Link> 
+            <Link to={'posPage'}>Pos page</Link> 
         </div>
     )
 }

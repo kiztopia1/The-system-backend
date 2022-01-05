@@ -5,6 +5,7 @@ import './app.scss'
 // components
 import Home from './home/home'
 import SoldItemsPage from './soldItemsPage/SoldItemsPage'
+import PosPage from './posPage/PosPage'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes >
       <Route path='/home' element={<Home/>}/>
       <Route path='/soldItems' element={<SoldItemsPage/>}/>
+      <Route path="/posPage" element={<PosPage/>}/>
 
       </Routes >
     </Router>  
