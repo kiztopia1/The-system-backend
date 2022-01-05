@@ -11,7 +11,6 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    
 }
 .home-nav{
     width: 60px;
@@ -19,6 +18,17 @@
 
 .home-child{
     flex-grow: 1;
+}
+.main-cards{
+    width: 500px;
+}
+.main-card{
+    height: 200px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 20px;
 }
 .pos{
     max-width: 400px;
