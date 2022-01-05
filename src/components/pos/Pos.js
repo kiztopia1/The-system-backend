@@ -66,27 +66,29 @@ function Pos() {
                 <input class="form-control" type="text" name="key" id="key" ref={key}/>
                 <button className='btn btn-sm btn-primary' type='submit' >add</button>
             </form>}
+            <div className="pos-main">
 
-            <div className="items">
-                {console.log(items, 'new items')}
-               {
-                   items.map(item => (
-                       <>
-                       <Item key={item.key} item={item} ></Item>
-                       </>
-                    
-                ))
-               }
-            </div>
+                <div className="items">
+                    {console.log(items, 'new items')}
+                {
+                    items.map(item => (
+                        <>
+                        <Item key={item.key} item={item} ></Item>
+                        </>
+                        
+                        ))
+                    }
+                </div>
 
             
 
-            <div className='pos-bottom'>
-                <div className="total">
-                    <p>total</p>
-                    {total}
+                <div className='pos-bottom'>
+                    <div className="total">
+                        <p>total</p>
+                        {total}
+                    </div>
+                    <button className='btn btn-sm btn-primary process-btn' onClick={handelProcessSale}>process</button>
                 </div>
-                <button className='btn btn-sm btn-primary' onClick={handelProcessSale}>process</button>
             </div>
         </div>
     )

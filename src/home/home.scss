@@ -13,6 +13,9 @@
     display: flex;
     
 }
+.home-nav{
+    width: 60px;
+}
 
 .home-child{
     flex-grow: 1;
@@ -20,9 +23,6 @@
 .pos{
     max-width: 400px;
     
-}
-.home-nav{
-    width: 60px;
 }
 .pos-header{
     background: $primary-light;

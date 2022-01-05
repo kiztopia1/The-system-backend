@@ -4,17 +4,17 @@ function Item({item}) {
 
     return (
         <div className="item row" key={item.key}>
-                     <div className="amount col-2">{item.amount}X</div>
-                     <div className='name col-7'>{item.name} </div>
-                     <div className="price col-3">{item.price} Birr</div>
+                     <div className="amount col-1 bold">{item.amount}X</div>
+                     <div className='name col-8 bold'>{item.name} </div>
+                     <div className="price col-3 bold">{Number(item.price)+ Math.floor((item.price * 0.15))} Birr</div>
 
-                    <div className=" col-2"></div>
-                     <div className='name col-7'></div>
-                     <div className="price col-3">{item.price} Birr</div>
+                    <div className=" col-1"></div>
+                     <div className='name col-8'>{item.name}</div>
+                     <div className="price col-3">+ {item.price} Birr</div>
 
-                    <div className='col-2'></div>
-                     <div className='name col-7'> </div>
-                     <div className="price col-3">{item.price} Birr</div>
+                    <div className='col-1'></div>
+                     <div className='name col-8'>Tax</div>
+                     <div className="price col-3"> + {Math.floor(item.price * 0.15)} Birr</div>
                 </div>
     )
 }

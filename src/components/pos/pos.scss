@@ -1,7 +1,28 @@
+@import '../../variables.scss';
 .pos{
     display: flex;
     flex-direction: column;
+    margin-left: 10px;
+
 }
 .pos h1{
     height: 43px;
+}
+.pos .items{
+    overflow-y: scroll;
+    overflow-x: hidden ;
+}
+.pos-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 75vh;
+}
+.pos .process-btn{
+    width: 100%;
+}
+.total {
+    background: inherit!important;
+    width: 100%;
+    color: $light-color;
 }
