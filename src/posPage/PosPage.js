@@ -2,7 +2,7 @@ import axios from 'axios'
 import React,{useRef,useState,useEffect} from 'react'
 import AddItem from '../components/addItemForm/AddItem'
 import Item from './Item'
-
+import AddItemForm from './addItemToPos'
 function PosPage() {
     const [items, setItems] = useState([])
     const [total, setTotal] = useState(0)
@@ -63,14 +63,10 @@ function PosPage() {
         <div>
             <h1>POS page</h1>
 
-            <form onSubmit={handleAddItem} className="search form-group" >
-                <label htmlFor="key">bar code</label>
-                <input class="form-control" type="text" name="key" id="key" ref={key}/>
-                <button className='btn btn-sm btn-primary' type='submit' >add</button>
-            </form>
+            <AddItemForm handleAddItem={handleAddItem} key={key}></AddItemForm>
 
             <div className="items">
-                {console.log(items, 'new items')}
+
                {
                    items.map(item => (
                        <>
