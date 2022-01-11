@@ -1,8 +1,7 @@
 import axios from 'axios'
 import React,{useRef,useState,useEffect} from 'react'
-import AddItem from '../components/addItemForm/AddItem'
 import Item from './Item'
-import AddItemForm from './addItemToPos'
+import AddItemForm from '../components/pos/addItemToPos'
 function PosPage() {
     const [items, setItems] = useState([])
     const [total, setTotal] = useState(0)
@@ -25,7 +24,24 @@ function PosPage() {
             saleId: 'kira',
             date: Date.now()
         }
-        setItems(prevItems => [...prevItems, soldItem])
+        setItems(prevItems => {
+            // prevItems.map(oldItem => {
+            //     if(item.name == oldItem.name ){
+            //         oldItem.amount ++
+            //     }else{
+                    
+            //     }
+            // }
+            // )
+            console.log(prevItems.find(oldItem => oldItem.key == item.key), "aha")
+            if(prevItems.find(oldItem => oldItem.key == item.key) != undefined){
+                //return prevItems.find(oldItem => oldItem.name == item.name).amount ++
+                return [...prevItems, soldItem]
+            }else{
+                return [...prevItems, soldItem]
+            }
+        })
+        // setItems(prevItems => [...prevItems, soldItem])
     }
 
     

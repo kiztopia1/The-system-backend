@@ -1,20 +1,14 @@
 import axios from 'axios'
 import React,{useRef,useState,useEffect} from 'react'
 import AddItem from '../addItemForm/AddItem'
+import AddItemToPos from './addItemToPos'
 import Item from './Item'
 import './pos.scss'
 function Pos() {
     const [items, setItems] = useState([])
     const [total, setTotal] = useState(0)
-    const key = useRef('')
-    const handleAddItem = (e) => {
-        e.preventDefault();
-        
-        axios.get(`http://127.0.0.1:8000/item/${key.current.value}`).then(res => {
-            addSoldItem(res.data)
-            
-        })
-    }
+    
+    
     const addSoldItem = (item) => {
 
         const soldItem = {
@@ -25,7 +19,19 @@ function Pos() {
             saleId: 'kira',
             date: Date.now()
         }
-        setItems(prevItems => [...prevItems, soldItem])
+        setItems(prevItems => {
+            if(prevItems.find(oldItem => oldItem.key == item.key) != undefined){
+                prevItems.map(oldItem => {
+                    if(oldItem.key == item.key){
+                        oldItem.amount = Number(oldItem.amount) + 1
+                    }
+                })
+                return [...prevItems]
+            }else{
+                return [...prevItems, soldItem]
+            }
+        })
+        // setItems(prevItems => [...prevItems, soldItem])
     }
 
     
@@ -33,8 +39,7 @@ function Pos() {
         const calcTotal = () => {
             let sum = 0
             items.forEach(function(item){
-                console.log(item)
-                console.log(item.price, item.amount)
+
                 sum = Number(item.price * item.amount) + sum
             }) 
             setTotal(sum)
@@ -44,7 +49,7 @@ function Pos() {
 
     const handelProcessSale = () => {
         items.map(item => {
-            console.log(item)
+
             const data  = {
                 item: item.key,
                 saleId: 'kira',
@@ -52,7 +57,7 @@ function Pos() {
                 date:  '2021-12-24'
             }
             axios.post('http://127.0.0.1:8000/pos/add', data).then(res => {
-                console.log(res)
+
                 if(res.status == 201){
                     setItems([])
                 }
@@ -61,15 +66,11 @@ function Pos() {
     }
     return (
         <div className='pos'>
-            {<form onSubmit={handleAddItem} className="search form-group" >
-                <label htmlFor="key">bar code</label>
-                <input class="form-control" type="text" name="key" id="key" ref={key}/>
-                <button className='btn btn-sm btn-primary' type='submit' >add</button>
-            </form>}
+            <AddItemToPos addSoldItem={addSoldItem} ></AddItemToPos>
             <div className="pos-main">
 
                 <div className="items">
-                    {console.log(items, 'new items')}
+
                 {
                     items.map(item => (
                         <>
