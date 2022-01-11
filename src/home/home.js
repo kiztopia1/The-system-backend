@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './home.scss'
 import Pos from '../components/pos/Pos'
 import {Link} from 'react-router-dom'
 import AddItem from '../components/addItemForm/AddItem'
 function Home() {
+    const [posTabs, setPosTabs] = useState(1)
+    const poses = () => {
+        let pos = []
+        for(let p = 0; p < posTabs; p++){
+            pos.push(<p><Pos/></p>)
+        }
+        console.log(pos)
+        return pos
+    }
+    const handlePos = () => {
+        const newTab = posTabs
+        setPosTabs(newTab + 1)
+    }
     return (
         <div className='home'>
             <div className="home-nav">
-                manu
+                nav
             </div>
             <div className=' home-child main'>
                 <h2>hagere Inventory </h2>
@@ -39,8 +52,13 @@ function Home() {
                 </div>
             </div>
             <div className="home-child pos">
-                <h2 className="pos-header">tab #1</h2>
-                <Pos/>
+                <h2 className="pos-header">
+                    <span className="titile">tab #1</span>
+                    <button className="btn btn-danger">X</button>
+                    <button className="btn btn-primary" onClick={handlePos}>+</button>
+                </h2>
+                {poses()}
+
             </div>
             
         </div>
