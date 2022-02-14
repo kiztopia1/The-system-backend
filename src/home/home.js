@@ -8,7 +8,7 @@ function Home() {
     const poses = () => {
         let pos = []
         for(let p = 0; p < posTabs; p++){
-            pos.push(<p><Pos/></p>)
+            pos.push(<li className=''><Pos/></li>)
         }
         console.log(pos)
         return pos
